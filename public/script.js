@@ -11,3 +11,35 @@ motionToggle?.addEventListener('click',()=>{
   motionToggle.setAttribute('aria-pressed',String(paused));
   motionToggle.textContent=paused?'Reprendre les animations':'Mettre les animations en pause';
 });
+
+// Pastille « Voir plus » uniquement pour une souris de précision.
+const pointerMedia=window.matchMedia('(hover: hover) and (pointer: fine)');
+const photoCursor=document.createElement('span');
+photoCursor.className='photo-cursor';photoCursor.setAttribute('aria-hidden','true');
+photoCursor.textContent='Voir plus';
+document.body.append(photoCursor);
+const hidePhotoCursor=()=>{photoCursor.classList.remove('is-visible');document.documentElement.classList.remove('cursor-enhanced');};
+let photoFrame=0;let photoX=0;let photoY=0;
+function movePhotoCursor(e){
+ photoX=e.clientX;photoY=e.clientY;
+ if(photoFrame)return;
+ photoFrame=requestAnimationFrame(()=>{
+  const x=Math.min(Math.max(photoX-photoCursor.offsetWidth/2,8),window.innerWidth-photoCursor.offsetWidth-8);
+  const y=Math.min(Math.max(photoY-photoCursor.offsetHeight/2,8),window.innerHeight-photoCursor.offsetHeight-8);
+  photoCursor.style.transform=`translate3d(${x}px,${y}px,0)`;photoFrame=0;
+ });
+}
+document.querySelectorAll('a.project-media,button.project-media').forEach(photo=>{
+ photo.addEventListener('pointerenter',e=>{
+  if(!pointerMedia.matches||e.pointerType!=='mouse')return;
+  photoCursor.textContent=photo.tagName==='BUTTON'?'Agrandir':'Voir plus';
+  photoCursor.classList.add('is-visible');document.documentElement.classList.add('cursor-enhanced');movePhotoCursor(e);
+ });
+ photo.addEventListener('pointermove',e=>{if(photoCursor.classList.contains('is-visible'))movePhotoCursor(e);});
+ photo.addEventListener('pointerleave',hidePhotoCursor);
+ photo.addEventListener('click',hidePhotoCursor);
+});
+window.addEventListener('scroll',hidePhotoCursor,{passive:true});
+window.addEventListener('blur',hidePhotoCursor);
+pointerMedia.addEventListener('change',hidePhotoCursor);
+document.addEventListener('keydown',hidePhotoCursor);

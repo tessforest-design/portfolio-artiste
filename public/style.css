@@ -95,3 +95,53 @@
 .reveal.visible{transform:none}
 @media(max-width:760px){.home-hero{padding-top:50px}.kinetic-title{font-size:clamp(46px,10vw,76px)}.kinetic-line.indent{padding-left:0;gap:14px}.hero-rotator{margin-left:0;font-size:clamp(20px,5.5vw,40px)}.hero-sun{width:clamp(30px,8vw,52px)}.motion-toggle{margin-left:0}.hero-bottom{gap:18px}.hero-bottom p{max-width:70%}.round-arrow{flex:none;width:55px;height:55px}}
 @media(prefers-reduced-motion:reduce){.hero-sun,.phrase-track,.marquee-track,.kinetic-title .word{animation:none;transform:none;opacity:1}.phrase-window{height:auto;overflow:visible}.phrase-track>span{height:auto;white-space:normal}.phrase-track>span:last-child{display:none}.motion-toggle{display:none}.reveal{opacity:1;transform:none;transition:none}.project-media img{transition:none}}
+
+/* Grandes proportions typographiques et grille mobile sur une colonne. */
+.icon{display:inline-block;width:1.2em;height:1.2em;vertical-align:middle;flex:none;color:inherit}
+.round-arrow .icon{width:30px;height:30px;color:#000}
+.text-link .icon{width:23px;height:23px;color:#000}
+.giant-link .icon{width:.65em;height:.65em;color:#000}
+.menu-toggle .icon{width:28px;height:28px;color:#000}
+.lightbox-close .icon{width:30px;height:30px}
+.marquee-group>.icon{width:.55em;height:.55em;color:#000}
+.marquee{background:#fff;color:#000;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.home-hero{padding-top:clamp(70px,9vw,150px)}
+.kinetic-title{font-size:clamp(64px,9.5vw,190px);font-weight:500;line-height:1.12;letter-spacing:-.075em;margin:0 0 2px}
+.kinetic-title>.word{display:inline-block;animation:wordRise 1.15s cubic-bezier(.16,1,.3,1) both}
+.hero-rotator{margin-left:0;font-size:clamp(40px,8.6vw,172px);line-height:1.22;letter-spacing:-.075em;font-weight:300;color:#666}
+.phrase-window,.phrase-track>span{height:1.22em}
+.motion-toggle{margin-left:0}
+.hero-bottom p{font-size:clamp(18px,1.5vw,24px);line-height:1.6}
+.section h2,.page-intro h1{font-size:clamp(64px,8vw,142px)}
+.statement p{font-size:clamp(45px,6.5vw,108px)}
+.project-meta h3{font-size:clamp(26px,2.6vw,42px)}
+.project-meta small{font-size:clamp(14px,1.1vw,18px);line-height:1.5}
+.page-intro p,.split p,.contact-layout p,.project-story p{font-size:clamp(18px,1.4vw,22px)}
+.nav-links{font-size:clamp(16px,1.3vw,22px)}
+.photo-cursor{position:fixed;top:0;left:0;z-index:90;pointer-events:none;display:none;align-items:center;gap:10px;padding:18px 25px;border-radius:100px;background:#fff;color:#000;font:500 17px/1.2 Inter,Arial,sans-serif;box-shadow:0 2px 14px #00000012;will-change:transform}
+.photo-cursor .icon{width:19px;height:19px}
+@media(hover:hover) and (pointer:fine){.photo-cursor.is-visible{display:flex}.cursor-enhanced a.project-media:hover,.cursor-enhanced button.project-media:hover{cursor:none}}
+@media(max-width:760px){
+ .shell{width:calc(100% - 32px)}
+ .home-hero{padding-top:50px}
+ .kinetic-title{font-size:9.6vw;line-height:1.15;letter-spacing:-.075em;white-space:nowrap}
+ .hero-rotator{font-size:9vw;line-height:1.3;letter-spacing:-.08em}
+ .phrase-window,.phrase-track>span{height:1.3em}
+ .hero-type{padding-bottom:28px}
+ .motion-toggle{font-size:11px;margin-top:18px}
+ .hero-bottom p{font-size:16px}
+ .projects-grid{grid-template-columns:minmax(0,1fr);gap:42px}
+ .project-card:nth-child(even){padding-top:0}
+ .project-media,.project-media.wide{aspect-ratio:4/3}
+ .project-meta{display:flex;flex-wrap:wrap;gap:6px 14px;padding-top:12px;align-items:baseline}
+ .project-meta h3{font-size:clamp(24px,6.2vw,34px)}
+ .project-meta small{font-size:clamp(14px,3.8vw,19px);text-transform:none;letter-spacing:0}
+ .section h2,.page-intro h1{font-size:clamp(42px,10.5vw,76px);line-height:1.08}
+ .statement p{font-size:clamp(32px,8.2vw,62px)}
+ .giant-link{font-size:clamp(40px,9vw,68px)}
+ .project-detail .page-intro h1{font-size:clamp(40px,10vw,72px)}
+ .detail-gallery{grid-template-columns:minmax(0,1fr)}
+ .brand{font-size:22px}
+ .photo-cursor{display:none!important}
+}
+@media(prefers-reduced-motion:reduce){.kinetic-title>.word{animation:none;opacity:1;transform:none}.phrase-window{height:auto}.phrase-track>span{height:auto}.photo-cursor{transition:none}}
