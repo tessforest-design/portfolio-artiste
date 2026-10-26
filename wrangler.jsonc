@@ -1,0 +1,8 @@
+{
+  "name": "snowy-fog-51d1",
+  "compatibility_date": "2026-10-24",
+  "assets": {
+    "directory": "./public",
+    "html_handling": "auto-trailing-slash"
+  }
+}
