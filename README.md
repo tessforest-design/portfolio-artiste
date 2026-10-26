@@ -1,18 +1,10 @@
-# Portfolio artiste — GitHub + Cloudflare Workers
+# Portfolio artiste
 
-Dépôt à connecter à Cloudflare > Workers & Pages > portfolio-artiste > Settings > Builds > Connect.
+Site statique pour le Worker existant portfolio-artiste.
+Voir GUIDE-MODIFIER-MON-SITE.md pour les textes, images et pages de projets.
 
-- Branche : main
-- Root directory : / (racine)
-- Build command : vide (aucune compilation)
-- Deploy command : npx wrangler deploy
-
-Le fichier `wrangler.jsonc` cible le Worker `portfolio-artiste`, correspondant au site https://portfolio-artiste.tessforest.workers.dev/.
-Le dossier `public/` contient les pages du site.
-Les adresses /projets, /parcours, /contact sont servies par `assets.html_handling`.
-
-ATTENTION : Vérifier le Worker existant avant le premier déploiement. Cette archive déploie seulement les fichiers statiques ; elle ne conserve pas un éventuel Worker JavaScript, des routes API, bindings ou variables déjà configurés ailleurs.
-
-Les photographies et contenus sont des démonstrations. Ne pas publier sans personnalisation.
-
-Correction du 26 octobre 2026 : seul le nom du Worker et cette notice ont été modifiés. Aucun déploiement effectué par cette correction. Avant publication, vérifier les paramètres réels du Worker et sauvegarder sa version existante.
+Cloudflare Builds : branche main, racine /, pas de compilation, déploiement npx wrangler deploy.
+Conserver public/ et wrangler.jsonc à la racine du dépôt.
+Les routes /projets, /parcours, /contact et les six pages de projet utilisent les fichiers HTML de public/.
+Cette livraison ne publie rien. Vérifier les paramètres et sauvegarder la version actuelle avant déploiement.
+Les textes et photographies sont des démonstrations à remplacer par vos contenus.
