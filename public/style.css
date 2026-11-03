@@ -244,3 +244,8 @@ body,.site-header,.site-footer,.statement,.marquee,.contact-banner:before{backgr
 .projects-heading .projects-phrase-track>span{white-space:normal;overflow-wrap:normal}
 .projects-heading .projects-phrase-long{font-size:inherit;line-height:inherit}
 @media(prefers-reduced-motion:reduce){.projects-heading .projects-phrase-window,.projects-heading .projects-phrase-track>span{height:auto}}
+
+/* Interlettrage naturel et sous-titres animés plus clairs. */
+body,body *{letter-spacing:normal!important}
+.hero-rotator,.projects-heading .projects-rotator{color:#706b70}
+@media(max-width:760px){.home-hero .kinetic-title{white-space:normal}}
