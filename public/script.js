@@ -45,16 +45,6 @@ pointerMedia.addEventListener('change',hidePhotoCursor);
 document.addEventListener('keydown',hidePhotoCursor);
 
 // Révéler les lettres sans couper les mots et sans masquer le titre si JavaScript est désactivé.
-// Adobe choisit le nom CSS de la police dans le projet web ; le repérer au chargement.
-if(document.fonts){
-  document.fonts.ready.then(()=>{
-    const heckle=Array.from(document.fonts).find(face=>/heckle/i.test(face.family));
-    if(!heckle)return;
-    document.querySelectorAll('.heckle-intro').forEach(element=>{
-      element.style.fontFamily=`${JSON.stringify(heckle.family)}, Georgia, serif`;
-    });
-  }).catch(()=>{});
-}
 document.querySelectorAll('[data-typewriter]').forEach(title=>{
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   const label=title.textContent.replace(/\s+/g,' ').trim();
@@ -75,6 +65,16 @@ document.querySelectorAll('[data-typewriter]').forEach(title=>{
     }
     node.replaceWith(fragment);
   });
+  const letters=Array.from(title.querySelectorAll('.typewriter-letter'));
+  if(!letters.length)return;
+  const caret=document.createElement('span');caret.className='typing-caret';caret.setAttribute('aria-hidden','true');
+  letters[0].before(caret);
+  let index=0;
+  const typingTimer=window.setInterval(()=>{
+    letters[index].after(caret);
+    index+=1;
+    if(index>=letters.length)window.clearInterval(typingTimer);
+  },25);
 });
 
 // Chaque mot reçoit une version différente du logo, dans l'ordre de la liste.

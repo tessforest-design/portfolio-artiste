@@ -80,7 +80,7 @@
 .marquee-track{display:flex;align-items:center;font-weight:400;font-size:clamp(54px,8vw,120px);line-height:1.5}
 .marquee-group{display:flex;align-items:center;gap:.35em;padding-right:.35em;flex:none}
 .marquee-smile{width:.62em;height:.62em;flex:none}
-.marquee:hover .marquee-track{animation-play-state:paused}
+
 .statement{background:var(--beige);color:var(--ink)}
 .contact-banner:before{background:var(--beige)}
 .site-footer{background:var(--beige);color:var(--ink)}
@@ -198,8 +198,19 @@ body,.site-header,.site-footer,.statement,.marquee,.contact-banner:before{backgr
 .studio-introduction{font-style:italic;font-weight:300}
 .studio-introduction em{font-style:italic;font-weight:300}
 .studio-introduction strong{font-style:normal;font-weight:700}
-.studio-introduction .heckle-intro{font-family:'heckle-variable','heckle','Heckle Variable',Georgia,serif;font-style:normal;font-weight:300;font-variation-settings:'wght' 300}
+.home-hero .kinetic-title{font-family:'heckle-vf',sans-serif;font-weight:300;font-variation-settings:'wght' 300}
 .typewriter-letter{animation:typewriter-appear 1ms steps(1,end) backwards;animation-delay:calc(var(--letter-index) * 25ms)}
 @keyframes typewriter-appear{from{opacity:0}to{opacity:1}}
 .phrase-track{animation-duration:7s}
 @media(prefers-reduced-motion:reduce){.typewriter-letter{animation:none;opacity:1}}
+
+/* Bandeau texte : défilement continu et palette inversée. */
+.marquee{background:var(--ink);color:var(--bg)}
+.marquee-group>.icon{color:var(--bg)}
+
+/* Titre Studio plus compact et curseur d'écriture. */
+.page-intro .studio-introduction{font-size:clamp(38px,5.4vw,88px)}
+.typing-caret{display:inline-block;width:.035em;min-width:2px;height:.9em;margin-left:.025em;background:currentColor;vertical-align:-.08em;animation:caret-blink .8s steps(1,end) infinite}
+@keyframes caret-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+@media(max-width:760px){.page-intro .studio-introduction{font-size:clamp(33px,8.8vw,64px)}}
+@media(prefers-reduced-motion:reduce){.typing-caret{display:none;animation:none}}
