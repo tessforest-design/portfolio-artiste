@@ -74,7 +74,7 @@ document.querySelectorAll('[data-typewriter]').forEach(title=>{
     letters[index].after(caret);
     index+=1;
     if(index>=letters.length)window.clearInterval(typingTimer);
-  },25);
+  },75);
 });
 
 // Chaque mot reçoit une version différente du logo, dans l'ordre de la liste.
