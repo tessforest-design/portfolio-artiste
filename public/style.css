@@ -193,3 +193,13 @@ body,.site-header,.site-footer,.statement,.marquee,.contact-banner:before{backgr
 .studio-word-description{font-size:clamp(15px,1.2vw,18px);line-height:1.55;max-width:420px}
 @media(max-width:760px){.brand img{width:clamp(155px,44vw,215px);max-height:38px}.studio-word{display:block;border:0;padding:14px 0}.logo-marquee{padding:42px 0}.logo-marquee-group img{width:clamp(210px,64vw,300px)}}
 @media(prefers-reduced-motion:reduce){.logo-marquee-track{animation:none}.logo-marquee-group:nth-child(2){display:none}}
+
+/* Signature de la page Studio et écriture progressive. */
+.studio-introduction{font-style:italic;font-weight:300}
+.studio-introduction em{font-style:italic;font-weight:300}
+.studio-introduction strong{font-style:normal;font-weight:700}
+.studio-introduction .heckle-intro{font-family:'heckle-variable','heckle','Heckle Variable',Georgia,serif;font-style:normal;font-weight:300;font-variation-settings:'wght' 300}
+.typewriter-letter{animation:typewriter-appear 1ms steps(1,end) backwards;animation-delay:calc(var(--letter-index) * 25ms)}
+@keyframes typewriter-appear{from{opacity:0}to{opacity:1}}
+.phrase-track{animation-duration:7s}
+@media(prefers-reduced-motion:reduce){.typewriter-letter{animation:none;opacity:1}}

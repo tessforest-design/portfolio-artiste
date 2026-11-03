@@ -44,6 +44,39 @@ window.addEventListener('blur',hidePhotoCursor);
 pointerMedia.addEventListener('change',hidePhotoCursor);
 document.addEventListener('keydown',hidePhotoCursor);
 
+// Révéler les lettres sans couper les mots et sans masquer le titre si JavaScript est désactivé.
+// Adobe choisit le nom CSS de la police dans le projet web ; le repérer au chargement.
+if(document.fonts){
+  document.fonts.ready.then(()=>{
+    const heckle=Array.from(document.fonts).find(face=>/heckle/i.test(face.family));
+    if(!heckle)return;
+    document.querySelectorAll('.heckle-intro').forEach(element=>{
+      element.style.fontFamily=`${JSON.stringify(heckle.family)}, Georgia, serif`;
+    });
+  }).catch(()=>{});
+}
+document.querySelectorAll('[data-typewriter]').forEach(title=>{
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const label=title.textContent.replace(/\s+/g,' ').trim();
+  title.setAttribute('aria-label',label);
+  const walker=document.createTreeWalker(title,NodeFilter.SHOW_TEXT);
+  const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
+  let position=0;
+  nodes.forEach(node=>{
+    const fragment=document.createDocumentFragment();
+    for(const part of node.textContent.split(/(\s+)/)){
+      if(!part)continue;
+      if(/^\s+$/.test(part)){fragment.append(document.createTextNode(part));continue;}
+      const word=document.createElement('span');word.style.display='inline-block';word.setAttribute('aria-hidden','true');
+      for(const character of Array.from(part)){
+        const letter=document.createElement('span');letter.className='typewriter-letter';letter.style.setProperty('--letter-index',position++);letter.textContent=character;word.append(letter);
+      }
+      fragment.append(word);
+    }
+    node.replaceWith(fragment);
+  });
+});
+
 // Chaque mot reçoit une version différente du logo, dans l'ordre de la liste.
 const studioLogos=['images/logos/studio-mecaro-noir.svg','images/logos/studio-mecaro-rose.svg','images/logos/studio-mecaro-pourpre.svg'];
 document.querySelectorAll('.studio-word').forEach((word,index)=>{
