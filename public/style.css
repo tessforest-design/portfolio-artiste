@@ -164,3 +164,17 @@
 @media(hover:hover) and (pointer:fine){.studio-word:hover .studio-word-description,.studio-word:focus-visible .studio-word-description{opacity:1;transform:translateY(0)}.studio-word:hover .studio-word-logo{opacity:1;rotate:8deg;scale:1.05}}
 @media(max-width:760px),(hover:none),(pointer:coarse){.studio-word-description,.studio-word-logo{display:none}.studio-words{padding-bottom:60px}.page-intro .studio-introduction{font-size:clamp(37px,10vw,72px);line-height:1.12}.page-intro .studio-translation{font-size:15px}}
 @media(prefers-reduced-motion:reduce){.studio-word-description,.studio-word-logo{transition:none}}
+
+/* Palette Mecaro : fond crème et texte brun très foncé. */
+:root{--bg:#faf1e5;--ink:#120d16;--muted:#120d16;--beige:#faf1e5;--line:#cfc5ba}
+body,.site-header,.site-footer,.statement,.marquee,.contact-banner:before{background-color:var(--bg);color:var(--ink)}
+.round-arrow,.round-arrow:hover,.round-arrow:focus,.giant-link span,.text-link span,.round-arrow .icon,.text-link .icon,.giant-link .icon,.menu-toggle .icon,.marquee-group>.icon{color:var(--ink);border-color:var(--ink)}
+.round-arrow,.round-arrow:hover,.round-arrow:focus{background:transparent}
+.photo-cursor{background:var(--bg);color:var(--ink)}
+.hero-rotator,.page-intro p,.split p,.contact-layout p,.project-story p,.project-meta small,.contact-banner p{color:var(--ink)}
+.filter-btn[aria-pressed=true],.filter-btn[aria-pressed=true]:hover,.submit{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.filter-btn:hover,.submit:hover{background:var(--bg);color:var(--ink)}
+.form-field input,.form-field textarea{color:var(--ink);border-color:var(--ink)}
+.form-field input::placeholder,.form-field textarea::placeholder{color:var(--ink);opacity:.7}
+.lightbox-caption,.lightbox-close,.lightbox-close .icon{color:#faf1e5}
+@media(max-width:760px){.studio-word{overflow-wrap:anywhere}}

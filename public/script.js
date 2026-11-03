@@ -50,10 +50,12 @@ document.querySelectorAll('.studio-word').forEach((word,index)=>{
   let logo=word.querySelector('.studio-word-logo');
   if(!logo){logo=document.createElement('img');logo.className='studio-word-logo';logo.alt='';logo.setAttribute('aria-hidden','true');word.append(logo);}
   logo.src=studioLogos[index%studioLogos.length];
-  word.addEventListener('pointermove',event=>{
+  const positionLogo=event=>{
     if(event.pointerType!=='mouse'||!pointerMedia.matches)return;
     const margin=90;
     logo.style.left=`${Math.max(margin,Math.min(window.innerWidth-margin,event.clientX))}px`;
     logo.style.top=`${Math.max(margin,Math.min(window.innerHeight-margin,event.clientY))}px`;
-  });
+  };
+  word.addEventListener('pointerenter',positionLogo);
+  word.addEventListener('pointermove',positionLogo);
 });
