@@ -223,3 +223,24 @@ body,.site-header,.site-footer,.statement,.marquee,.contact-banner:before{backgr
 @keyframes project-phrases{0%,14%{transform:translateY(0)}20%,34%{transform:translateY(-16.666667%)}40%,54%{transform:translateY(-33.333333%)}60%,74%{transform:translateY(-50%)}80%,94%{transform:translateY(-66.666667%)}100%{transform:translateY(-83.333333%)}}
 @media(max-width:760px){.projects-rotator{font-size:clamp(19px,6vw,42px)}}
 @media(prefers-reduced-motion:reduce){.projects-phrase-window{height:auto;overflow:visible}.projects-phrase-track{animation:none;transform:none}.projects-phrase-track>span{height:auto;white-space:normal}.projects-phrase-track>span:last-child{display:none}}
+
+/* Page Projets : titres animés à l’échelle de ceux de l’accueil. */
+.projects-rotator{font-size:clamp(40px,8.6vw,172px);letter-spacing:-.075em;line-height:1.22}
+.projects-phrase-window,.projects-phrase-track>span{height:1.22em}
+.projects-phrase-long{font-size:.64em;line-height:1.90625}
+@media(max-width:760px){.projects-rotator{font-size:9vw;line-height:1.3;letter-spacing:-.08em}.projects-phrase-window,.projects-phrase-track>span{height:1.3em}.projects-phrase-long{font-size:.7em;line-height:1.857143}}
+@media(prefers-reduced-motion:reduce){.projects-phrase-window{height:auto}.projects-phrase-track>span{height:auto}.projects-phrase-long{line-height:1.3}}
+
+/* Fiches projets : mêmes dimensions de présentation, sans rogner les visuels. */
+.project-detail .detail-cover{aspect-ratio:16/10;background:var(--bg)}
+.project-detail .detail-cover img{display:block;width:100%;height:100%;max-height:none;object-fit:contain}
+.project-detail .detail-photo .project-media,.project-detail .detail-photo:nth-child(3n) .project-media{aspect-ratio:4/3;background:var(--bg)}
+.project-detail .detail-photo .project-media img{width:100%;height:100%;object-fit:contain}
+@media(max-width:760px){.project-detail .detail-cover{aspect-ratio:4/3}.project-detail .detail-photo .project-media{aspect-ratio:4/3}}
+
+/* Page Projets : même typographie et taille que le titre de Contact. */
+.projects-heading .projects-rotator{font-family:inherit;font-size:inherit;font-style:italic;font-weight:400;letter-spacing:inherit;line-height:1.08}
+.projects-heading .projects-phrase-window,.projects-heading .projects-phrase-track>span{height:2.16em}
+.projects-heading .projects-phrase-track>span{white-space:normal;overflow-wrap:normal}
+.projects-heading .projects-phrase-long{font-size:inherit;line-height:inherit}
+@media(prefers-reduced-motion:reduce){.projects-heading .projects-phrase-window,.projects-heading .projects-phrase-track>span{height:auto}}
