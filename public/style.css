@@ -178,3 +178,18 @@ body,.site-header,.site-footer,.statement,.marquee,.contact-banner:before{backgr
 .form-field input::placeholder,.form-field textarea::placeholder{color:var(--ink);opacity:.7}
 .lightbox-caption,.lightbox-close,.lightbox-close .icon{color:#faf1e5}
 @media(max-width:760px){.studio-word{overflow-wrap:anywhere}}
+
+/* Identité du studio : signature en en-tête et ruban en mouvement. */
+.brand{display:inline-flex;align-items:center;flex:none}
+.brand img{display:block;width:clamp(180px,18vw,270px);height:auto;max-height:55px}
+.logo-marquee{overflow:hidden;background:var(--bg);padding:clamp(42px,6vw,96px) 0;color:var(--ink)}
+.logo-marquee-track{display:flex;width:max-content;animation:logo-scroll 32s linear infinite}
+.logo-marquee-group{display:flex;align-items:center;gap:clamp(42px,6vw,110px);padding-right:clamp(42px,6vw,110px);flex:none}
+.logo-marquee-group img{display:block;width:clamp(220px,30vw,405px);height:auto;flex:none}
+.logo-marquee:hover .logo-marquee-track{animation-play-state:paused}
+@keyframes logo-scroll{to{transform:translateX(-50%)}}
+/* Les descriptions se placent à droite, sur la ligne de chaque mot. */
+.studio-word{display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,420px);column-gap:clamp(32px,7vw,120px);align-items:center;border:0;padding:clamp(12px,2vw,26px) 0}
+.studio-word-description{font-size:clamp(15px,1.2vw,18px);line-height:1.55;max-width:420px}
+@media(max-width:760px){.brand img{width:clamp(155px,44vw,215px);max-height:38px}.studio-word{display:block;border:0;padding:14px 0}.logo-marquee{padding:42px 0}.logo-marquee-group img{width:clamp(210px,64vw,300px)}}
+@media(prefers-reduced-motion:reduce){.logo-marquee-track{animation:none}.logo-marquee-group:nth-child(2){display:none}}
