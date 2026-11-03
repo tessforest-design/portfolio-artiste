@@ -248,3 +248,7 @@ body,.site-header,.site-footer,.statement,.marquee,.contact-banner:before{backgr
 /* Sous-titres animés plus clairs. */
 .hero-rotator,.projects-heading .projects-rotator{color:#706b70}
 @media(max-width:760px){.home-hero .kinetic-title{white-space:normal}}
+
+/* Titres plus serrés et sous-titre animé de l’accueil en italique. */
+h1,h2,h3,.home-hero .kinetic-title,.page-intro .studio-introduction,.projects-heading .projects-rotator{letter-spacing:-.085em}
+.hero-rotator{font-style:italic}
