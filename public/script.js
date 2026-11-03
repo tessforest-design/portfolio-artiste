@@ -43,3 +43,17 @@ window.addEventListener('scroll',hidePhotoCursor,{passive:true});
 window.addEventListener('blur',hidePhotoCursor);
 pointerMedia.addEventListener('change',hidePhotoCursor);
 document.addEventListener('keydown',hidePhotoCursor);
+
+// Chaque mot reçoit une version différente du logo, dans l'ordre de la liste.
+const studioLogos=['images/logos/studio-mecaro-noir.svg','images/logos/studio-mecaro-rose.svg','images/logos/studio-mecaro-pourpre.svg'];
+document.querySelectorAll('.studio-word').forEach((word,index)=>{
+  let logo=word.querySelector('.studio-word-logo');
+  if(!logo){logo=document.createElement('img');logo.className='studio-word-logo';logo.alt='';logo.setAttribute('aria-hidden','true');word.append(logo);}
+  logo.src=studioLogos[index%studioLogos.length];
+  word.addEventListener('pointermove',event=>{
+    if(event.pointerType!=='mouse'||!pointerMedia.matches)return;
+    const margin=90;
+    logo.style.left=`${Math.max(margin,Math.min(window.innerWidth-margin,event.clientX))}px`;
+    logo.style.top=`${Math.max(margin,Math.min(window.innerHeight-margin,event.clientY))}px`;
+  });
+});
